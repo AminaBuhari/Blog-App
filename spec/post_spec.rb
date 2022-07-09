@@ -7,7 +7,7 @@ RSpec.describe Post, type: :model do
 
   before { subject.save }
 
-  it 'title should be present' do
+  it 'should validate_presence_of post' do
     subject.title = nil
     expect(subject).to_not be_valid
   end

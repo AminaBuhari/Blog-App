@@ -14,4 +14,10 @@ RSpec.describe Like, type: :model do
     subject.save
     expect(post.likes_counter).to eq(counter + 1)
   end
+
+  it 'should validate_presence_of like' do
+    subject.title = nil
+    expect(subject).to_not be_valid
+  end
+
 end
