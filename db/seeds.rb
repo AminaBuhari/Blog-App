@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+ 
+User.create([{:name => "Tom", :photo => "https://unsplash.com/photos/F_-0BxGuVvo", :bio => "Teacher from Mexico."}])
+Post.create(title: 'Hello', text: 'This is my first post')
+Comment.create(text:"great", text: 'Hi Tom!' )
