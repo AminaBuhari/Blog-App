@@ -12,7 +12,7 @@ RSpec.describe Comment, type: :model do
     subject.name = nil
     expect(subject).to_not be_valid
   end
-  
+
   it 'should increment post comments counter' do
     counter = post.comments_counter
     subject.save
