@@ -42,9 +42,10 @@ RSpec.describe Post, type: :model do
     expect(subject.recent_comments.size).to eq(5)
   end
 
-  it 'Method should return the updated posts_counter' do
-    counter = user.postscounter
-    subject.save
-    expect(user.postscounter).to eq(counter + 1)
+  it 'Method should return the updated post_counter' do
+    subject.user = User.new(name: 'Demo User', post_counter: 0)
+    post_counter = subject.user.post_counter
+    subject.update_post_counter
+    expect(subject.user.post_counter).to eq(post_counter + 1)
   end
 end
