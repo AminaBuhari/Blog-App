@@ -17,7 +17,7 @@ RSpec.describe 'Users', type: :request do
 end
 RSpec.describe 'Test index action', type: :request do
   before(:example) { get users_path }
-  it "successful" do
+  it 'successful' do
     expect(response).to have_http_status(:ok)
   end
   it 'shows index' do
