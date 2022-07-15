@@ -14,10 +14,10 @@ RSpec.describe 'Test index action', type: :request do
     @user = User.create!(name: 'Tom', photo: 'https://i.ibb.co/n6R1Zh1/At-hospital.jpg', bio: 'Hospital.')
     get user_posts_path(@user)
   end
-  it "is a success" do
+  it 'is a success' do
     expect(response).to have_http_status(:ok)
   end
-  it "renders 'index' template" do
+  it 'renders template' do
     expect(response).to render_template('index')
   end
 
@@ -33,10 +33,10 @@ RSpec.describe 'Test index action' do
                                 comments_counter: 0, likes_counter: 0)
     get user_post_path(@user, @post)
   end
-  it "is a success" do
+  it 'is a success' do
     expect(response).to have_http_status(:ok)
   end
-  it "renders 'show' template" do
+  it 'renders 'show' template' do
     expect(response).to render_template(:show)
   end
 

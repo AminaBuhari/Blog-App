@@ -35,10 +35,10 @@ RSpec.describe 'Test show action' do
     get user_path(@user)
   end
 
-  it "successful login" do
+  it 'successful login' do
     expect(response).to have_http_status(:ok)
   end
-  it "shows template" do
+  it 'shows template' do
     expect(response).to render_template(:show)
   end
 
