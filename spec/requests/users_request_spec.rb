@@ -20,7 +20,7 @@ RSpec.describe 'Test index action', type: :request do
   it "successful" do
     expect(response).to have_http_status(:ok)
   end
-  it "shows index" do
+  it 'shows index' do
     expect(response).to render_template('index')
   end
 
