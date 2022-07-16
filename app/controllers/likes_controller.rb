@@ -7,13 +7,12 @@ class LikesController < ApplicationController
     respond_to do |format|
       if @like.save
         format.html do
-        redirect_to user_post_path(@like.author_id, @like.post_id
-        end
+        redirect_to user_post_path(@like.author_id, @like.post_id)
       end
     end
   end
   
-    private
+  private
   
   def set_like
     @like = Like.new
