@@ -10,6 +10,7 @@ class LikesController < ApplicationController
         redirect_to user_post_path(@like.author_id, @like.post_id)
       end
     end
+   end
   end
   
   private
