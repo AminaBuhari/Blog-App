@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
  
-    users = User.create([{ name: "Demo User", photo: "https://i.imgur.com/XyqQZ.jpg", bio: "This is a demo user. Please do not use this user for any purpose." }, { name: "John Doe", photo: "https://i.imgur.com/XyqQZ.jpg", bio: "This is a demo user. Please do not use this user for any purpose." }])
-    posts = Post.create([{ title: "Demo Post", text: "This is a demo post. Please do not use this post for any purpose.", author_id: users[0].id, user_id: users[0].id }, { title: "Demo Post", text: "This is a demo post. Please do not use this post for any purpose.", author_id: users[0].id, user_id: users[0].id }, { title: "Demo Post", text: "This is a demo post. Please do not use this post for any purpose.", author_id: users[0].id, user_id: users[0].id }])
+    users = User.create([{ name: "Dummy", photo: "https://i.ibb.co/MNCTGWY/sponge.jpg", bio: "This is a dummy user. Please do not use this user for any purpose." }, { name: "Asake", photo: "https://i.ibb.co/KVKX5KZ/patrick.png", bio: "This is an asake lover. Please do not use this user for any purpose." }, { name: "Happiness", photo: "https://i.ibb.co/gJNk37K/squidward.png", bio: "This is a happy user. Please do not use this user for any purpose." }])
+    posts = Post.create([{ title: "Dummy Post", text: "This is a dummy post. Please do not use this post for any purpose.", author_id: users[0].id, user_id: users[0].id }, { title: "Demo Post", text: "This is a demo post. Please do not use this post for any purpose.", author_id: users[0].id, user_id: users[0].id }, { title: "Demo Post", text: "This is a demo post. Please do not use this post for any purpose.", author_id: users[0].id, user_id: users[0].id }])
     posts[0].update_post_counter();
     posts[1].update_post_counter();
     posts[2].update_post_counter();
@@ -16,7 +16,7 @@
     comments[1].update_comment_counter();
     comments[2].update_comment_counter();
     
-    likes = Like.create([{ post_id: posts[0].id, author_id: users[0].id, user_id: users[0].id }, { post_id: posts[0].id, author_id: users[0].id, user_id: users[0].id }, { post_id: posts[0].id, author_id: users[0].id, user_id: users[0].id }])
+    likes = Like.create([{ post_id: posts[0].id, user_id: users[0].id }, { post_id: posts[0].id, user_id: users[0].id }, { post_id: posts[0].id, user_id: users[0].id }])
     likes[0].update_likes_counter();
     likes[1].update_likes_counter();
     likes[2].update_likes_counter();

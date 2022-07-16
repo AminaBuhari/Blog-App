@@ -1,3 +1,24 @@
-# <h1>Users#show</h1>
-<h1>Here is a user</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="user">
+  <div class="user-image">
+    <%=image_tag("https://source.unsplash.com/200x200/?img=#{@user.id}", class: 'user--imagr', alt: 'user picture')%>
+  </div>
+  <div class="user-name">
+    <%=link_to @user.name, user_path(@user), class: 'name'%>
+    <%=link_to "Number of posts: #{@user.post_counter}",          user_posts_path(@user), class: 'posts-num'%>
+  </div>
+</div>
+<div class="user-bio">
+  <h3>Bio</h3>
+  <p><%= @user.bio %></p>
+</div>
+<%@user.most_recent_three_posts.each.with_index(1) do |post, idx|%>
+  <div class="user-post">
+    <h3><%=link_to post.title, user_post_path(@user, post) %></h3>
+    <p><%= post.text.slice(0...50) + '...' %></p>
+    <p class='count'>Comments <%=post.comments_counter%>, Likes <%=post.likes_counter%></p>
+  </div>
+<%end%>
+<div class="btn">
+  <%=link_to "See all posts", user_posts_path(@user), class: 'show-posts'%>
+</div>
+ x
