@@ -1,0 +1,5 @@
+<%=form_with :url => user_like_path(@user, @post), :method => :post, :class => 'new-like' do |f|%>
+    <%= f.button nil, class: "button_green" do %>
+      <%= icon('fa-solid', 'thumbs-up', class: 'like')%>
+    <% end %>
+  <%end%>
