@@ -1,6 +1,13 @@
 <div class="post">
   <div class="post-content">
-    <h3><%=@post.title%> by <%=@post.user.name%> </h3>
+  <div class="post-title">
+      <h3><%=@post.title%> by <%=@post.user.name%></h3>
+      <%=form_with :url => user_like_path(@user, @post), :method => :post, :class => 'new-like' do |f|%>
+        <%= f.button nil, class: "button_green" do %>
+          <%= icon('fa-solid', 'thumbs-up', class: 'like')%>
+        <% end %>
+      <%end%>
+    </div>
     <h4>Comments: <%=@post.comments_counter%>, Likes: <%=@post.likes_counter%></h4>
     <p><%=@post.text%></p>
   </div>
@@ -12,5 +19,9 @@
         <p></p>
       </div>
     <%end%>
+    <%=form_with :url => user_comments_path(@user, @post), :method => :post, :class => 'new-comment' do |f|%>
+        <%=f.text_field :text, placeholder: 'Comment', class: 'comment-text'%>
+        <%=f.submit 'Comment', class: 'comment-submit'%>
+      <%end%>
   </div>
 </div>

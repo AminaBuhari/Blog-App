@@ -15,6 +15,7 @@
  */
 @import "users.css";
 @import "posts.css";
+@import "font-awesome";
 
 * {
   box-sizing: border-box;
@@ -25,4 +26,16 @@
 body {
   padding: 1rem;
   font-family: Lato, sans-serif;
+}
+
+input,
+label {
+  display: block;
+}
+
+input {
+  padding: 0.5rem;
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin-bottom: 1rem;
 }
