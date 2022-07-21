@@ -18,7 +18,7 @@ RSpec.describe 'Posts', type: :system do
                              bio: 'Bio2',
                              post_counter: 0)
 
-      post1 = Post.create(user: @author1, title: 'Hello', text: 'This is my first post')
+      @post1 = Post.create(user: @author1, title: 'Hello', text: 'This is my first post')
 
       @comment1 = Comment.create(text: 'Comment1', user: @author2, post: @post1)
 
