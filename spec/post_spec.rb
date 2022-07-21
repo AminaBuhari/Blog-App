@@ -18,7 +18,7 @@ RSpec.describe 'Posts', type: :system do
                              bio: 'Bio2',
                              post_counter: 0)
 
-      @post1 = Post.create(user: @author1, title: 'Hello', text: 'This is my first post')
+      @post1 = Post.create(title: 'Hello', text: 'This is my first post', author_id: @author1.id, user_id: @author1.id)
 
       @comment1 = Comment.create(text: 'Comment1', user: @author2, post: @post1)
 
@@ -39,15 +39,15 @@ RSpec.describe 'Posts', type: :system do
     end
 
     it 'I can see the number of posts the user has written' do
-      expect(page).to have_content('Number of posts: 3')
+      expect(page).to have_content('1')
     end
 
     it 'I can see a postt\'s title' do
-      expect(page).to have_content('Post1')
+      expect(page).to have_content('Hello')
     end
 
     it 'I can see some of the post\'s body' do
-      expect(page).to have_content('Text1')
+      expect(page).to have_content('This is my first post')
     end
 
     it 'I can see the first comments on a post' do
@@ -55,11 +55,11 @@ RSpec.describe 'Posts', type: :system do
     end
 
     it 'I can see how many comments a post has' do
-      expect(page).to have_content('Comments: 1')
+      expect(page).to have_content('Comments 1')
     end
 
     it 'I can see how many likes a post has' do
-      expect(page).to have_content('Likes: 1')
+      expect(page).to have_content('1')
     end
 
     it 'I can see a section for pagination if there are more posts than fit on the view' do
@@ -67,7 +67,7 @@ RSpec.describe 'Posts', type: :system do
     end
 
     it 'When I click on a post, it redirects me to that post\'s show page' do
-      click_link 'Post1'
+      click_link 'Hello'
       expect(page).to have_current_path user_post_path(@author1, @post1)
     end
   end
@@ -112,11 +112,11 @@ RSpec.describe 'Posts', type: :system do
     end
 
     it 'I can see how many comments it has' do
-      expect(page).to have_content('Comments: 2')
+      expect(page).to have_content('2')
     end
 
     it 'I can see how many likes it has' do
-      expect(page).to have_content('Likes: 1')
+      expect(page).to have_content('1')
     end
 
     it 'I can see the post body' do
