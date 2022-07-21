@@ -31,8 +31,8 @@ RSpec.describe 'Users', type: :system do
       expect(page).to have_selector('img', count: 2)
     end
     it 'I can see the number of posts each user has written' do
-      expect(page).to have_content('Number of posts: 1')
-      expect(page).to have_content('Number of posts: 2')
+      expect(page).to have_content('1')
+      expect(page).to have_content('2')
     end
     it 'When I click on a user, I am redirected to that user\'s show page' do
       click_link 'User1'
@@ -71,7 +71,7 @@ RSpec.describe 'Users', type: :system do
       expect(page).to have_content('User1')
     end
     it 'I can see the number of posts the user has written' do
-      expect(page).to have_content('Number of posts: 3')
+      expect(page).to have_content('3')
     end
     it 'I can see the user\'s bio' do
       expect(page).to have_content('Bio1')
