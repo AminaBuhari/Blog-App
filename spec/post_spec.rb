@@ -133,4 +133,3 @@ RSpec.describe 'Posts', type: :system do
     end
   end
 end
-

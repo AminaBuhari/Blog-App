@@ -1,5 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
@@ -64,7 +65,6 @@ RSpec.configure do |config|
   Capybara.register_driver :custom_selenium do |app|
     Capybara::Selenium::Driver.new(app, :browser => :firefox, :profile => 'default')
   end
-  
+
   Capybara.default_driver = :custom_selenium
 end
-
