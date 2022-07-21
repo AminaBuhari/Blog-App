@@ -48,6 +48,10 @@ gem 'ffi', '~> 1.15.5'
 
 gem 'sassc-rails'
 
+source "https://rubygems.org"
+
+gem "rspec"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -59,6 +63,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bullet', require: true
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
 
@@ -69,10 +74,10 @@ group :development do
   # gem "spring"
 end
 
+
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-

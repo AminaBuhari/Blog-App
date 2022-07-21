@@ -14,12 +14,12 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     set_comment
     @comment.user = current_user
-      if @comment.save
-        puts @comment
-        redirect_to user_posts_path(current_user, :post_id)
-      else
-        render :new
-      end
+    if @comment.save
+      puts @comment
+      redirect_to user_posts_path(current_user, :post_id)
+    else
+      render :new
+    end
   end
 
   private
