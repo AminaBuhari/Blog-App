@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_0BxGuVvo', bio: 'Teacher from Mexico.')
+  user1 = User.create(name: 'Amina', photo: 'https://unsplash.com/photos/F_0BxGuVvo', bio: 'girl')
 
-  subject { Post.new(user:, title: 'Hello', text: 'This is my first post') }
+  subject { Post.new(user: user1, title: 'Hello', text: 'This is my first post') }
 
   before { subject.save }
 
@@ -38,13 +38,14 @@ RSpec.describe Post, type: :model do
   end
 
   it ':recent_comments should return 5 recent comments' do
-    5.times { Comment.create(user:, post: subject, text: 'Comment text') }
+    5.times { Comment.create(user: user1, post: subject, text: 'Comment text') }
     expect(subject.recent_comments.size).to eq(5)
   end
 
-  it 'Method should return the updated posts_counter' do
-    counter = user.postscounter
-    subject.save
-    expect(user.postscounter).to eq(counter + 1)
+  it 'Method should return the updated post_counter' do
+    subject.user = User.new(name: 'Demo User', post_counter: 0)
+    post_counter = subject.user.post_counter
+    subject.update_post_counter
+    expect(subject.user.post_counter).to eq(post_counter + 1)
   end
 end
