@@ -46,6 +46,8 @@ gem 'font-awesome-sass', '~> 6.1.1'
 # Use Sass to process CSS
 gem 'ffi', '~> 1.15.5'
 
+gem 'devise'
+
 gem 'sassc-rails'
 
 source 'https://rubygems.org'

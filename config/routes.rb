@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'cill/new'
   get 'cill/create'
   root "users#index"
