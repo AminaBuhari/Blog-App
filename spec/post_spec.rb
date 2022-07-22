@@ -12,7 +12,6 @@ RSpec.describe 'Posts', type: :system do
                              photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
                              bio: 'Bio1',
                              post_counter: 0)
-
       @author2 = User.create(name: 'User2',
                              photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
                              bio: 'Bio2',
@@ -70,6 +69,7 @@ RSpec.describe 'Posts', type: :system do
       click_link 'Hello'
       expect(page).to have_current_path user_post_path(@author1, @post1)
     end
+
   end
 
   describe 'show' do
