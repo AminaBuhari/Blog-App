@@ -5,12 +5,13 @@ class PostsController < ApplicationController
     @page = 0 if @page.negative? || @page > (Post.count / POSTS_PER_PAGE)
     @user = User.find(params[:user_id])
     @posts = @user.posts.offset(@page * POSTS_PER_PAGE).limit(POSTS_PER_PAGE)
+    @posts = @user.posts.includes(comments: params[:user]).offset(@page * POSTS_PER_PAGE).limit(POSTS_PER_PAGE)
   end
 
   def show
     @post = Post.find(params[:id])
     @user = current_user
-    @comments = Comment.where(post_id: params[:id]).where(author_id: params[:user_id])
+    @comments = @post.comments.includes(:user)
   end
 
   def new
@@ -23,7 +24,7 @@ class PostsController < ApplicationController
     @post.user = current_user
     if @post.save
       puts @post
-      redirect_to user_posts_path(current_user)
+      redirect_to user_posts_path(current_user.id)
     else
       render :new
     end

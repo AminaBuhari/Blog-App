@@ -30,12 +30,27 @@ run the following after cloning the repository
 - `rspec`
 
 ## Authors
-👤 **Amina Buhari**
 
-- GitHub: [@githubhandle](https://github.com/AminaBuhari)
-- Twitter: [@twitterhandle](https://twitter.com/AminaBuhari)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/amina-buhari/)
+<!-- table Variables -->
+[@githubhandle]:https://github.com/AminaBuhari
+[@twitterhandle]:https://twitter.com/AminaBuhari
+[LinkedIn]:https://www.linkedin.com/in/amina-buhari/
+[@andres-condezo]:https://github.com/andres-condezo
+[@andres_condezo]:https://twitter.com/andres_condezo
+[andres-condezo]:https://www.linkedin.com/in/andres-condezo/
+<!-- table Variables -->
 
+| 👤           | **Amina Buhari** |
+|--------------|------------------|
+| **GitHub**   | [@githubhandle]  |
+| **Twitter**  | [@twitterhandle] |
+| **LinkedIn** | [LinkedIn]       |
+
+| 👤           | **Andres Condezo** |
+|--------------|--------------------|
+| **GitHub**   | [@andres-condezo]  |
+| **Twitter**  | [@andres_condezo]  |
+| **LinkedIn** | [andres-condezo]   |
 
 ## 🤝 Contributing
 

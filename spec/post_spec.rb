@@ -1,51 +1,134 @@
 require 'rails_helper'
 
-RSpec.describe Post, type: :model do
-  user1 = User.create(name: 'Amina', photo: 'https://unsplash.com/photos/F_0BxGuVvo', bio: 'girl')
+RSpec.describe 'Posts', type: :system do
+  describe 'index' do
+    before :all do
+      Post.destroy_all
+      User.destroy_all
+    end
 
-  subject { Post.new(user: user1, title: 'Hello', text: 'This is my first post') }
+    before(:each) do
+      @author1 = User.create(name: 'User1',
+                             photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                             bio: 'Bio1',
+                             post_counter: 0)
+      @author2 = User.create(name: 'User2',
+                             photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                             bio: 'Bio2',
+                             post_counter: 0)
 
-  before { subject.save }
+      @post1 = Post.create(title: 'Hello', text: 'This is my first post', author_id: @author1.id, user_id: @author1.id)
 
-  it 'should validate_presence_of post' do
-    subject.title = nil
-    expect(subject).to_not be_valid
+      @comment1 = Comment.create(text: 'Comment1', user: @author2, post: @post1)
+
+      @likes1 = Like.create(user: @author1, post: @post2)
+      @likes2 = Like.create(user: @author2, post: @post1)
+
+      visit '/users'
+      click_link 'User1'
+      click_link 'See all posts'
+    end
+
+    it 'I can see the user\'s profile picture' do
+      expect(page).to have_selector('img')
+    end
+
+    it 'I can see the user\'s username' do
+      expect(page).to have_content('User1')
+    end
+
+    it 'I can see the number of posts the user has written' do
+      expect(page).to have_content('1')
+    end
+
+    it 'I can see a postt\'s title' do
+      expect(page).to have_content('Hello')
+    end
+
+    it 'I can see some of the post\'s body' do
+      expect(page).to have_content('This is my first post')
+    end
+
+    it 'I can see the first comments on a post' do
+      expect(page).to have_content('Comment1')
+    end
+
+    it 'I can see how many comments a post has' do
+      expect(page).to have_content('Comments 1')
+    end
+
+    it 'I can see how many likes a post has' do
+      expect(page).to have_content('1')
+    end
+
+    it 'I can see a section for pagination if there are more posts than fit on the view' do
+      expect(page).to have_content('Next Page')
+    end
+
+    it 'When I click on a post, it redirects me to that post\'s show page' do
+      click_link 'Hello'
+      expect(page).to have_current_path user_post_path(@author1, @post1)
+    end
   end
 
-  it 'title should not have morethan 250 characters' do
-    subject.title = 'a' * 255
-    expect(subject).to_not be_valid
-  end
+  describe 'show' do
+    before :all do
+      Post.destroy_all
+      User.destroy_all
+    end
 
-  it 'comments_counter should be greater than or equal to 0' do
-    subject.comments_counter = -1
-    expect(subject).to_not be_valid
-  end
+    before(:each) do
+      @author1 = User.create(name: 'User1',
+                             photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                             bio: 'Bio1',
+                             post_counter: 0)
 
-  it 'comments_counter should be an integer' do
-    subject.comments_counter = 'string'
-    expect(subject).to_not be_valid
-  end
+      @author2 = User.create(name: 'User2',
+                             photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                             bio: 'Bio2',
+                             post_counter: 0)
 
-  it 'likes_counter should be greater than or equal to 0' do
-    subject.likes_counter = -1
-    expect(subject).to_not be_valid
-  end
+      @post1 = Post.create(user: @author1, title: 'Post1', text: 'Text1')
+      @post2 = Post.create(user: @author2, title: 'Post2', text: 'Text2')
 
-  it 'likes_counter should be an integer' do
-    subject.likes_counter = 'string'
-    expect(subject).to_not be_valid
-  end
+      @comment1 = Comment.create(text: 'Comment1', user: @author2, post: @post1)
+      @comment2 = Comment.create(text: 'Comment2', user: @author2, post: @post1)
 
-  it ':recent_comments should return 5 recent comments' do
-    5.times { Comment.create(user: user1, post: subject, text: 'Comment text') }
-    expect(subject.recent_comments.size).to eq(5)
-  end
+      @likes1 = Like.create(user: @author1, post: @post2)
+      @likes2 = Like.create(user: @author2, post: @post1)
 
-  it 'Method should return the updated post_counter' do
-    subject.user = User.new(name: 'Demo User', post_counter: 0)
-    post_counter = subject.user.post_counter
-    subject.update_post_counter
-    expect(subject.user.post_counter).to eq(post_counter + 1)
+      visit '/users'
+      click_link 'User1'
+      click_link 'Post1'
+    end
+
+    it 'I can see the post\'s title' do
+      expect(page).to have_content('Post1')
+    end
+
+    it 'I can see who wrote the post' do
+      expect(page).to have_content('User1')
+    end
+
+    it 'I can see how many comments it has' do
+      expect(page).to have_content('2')
+    end
+
+    it 'I can see how many likes it has' do
+      expect(page).to have_content('1')
+    end
+
+    it 'I can see the post body' do
+      expect(page).to have_content('Text1')
+    end
+
+    it 'I can see the username of each commentor' do
+      expect(page).to have_content('User2:')
+    end
+
+    it 'I can see the comment each commentor left' do
+      expect(page).to have_content('Comment1')
+      expect(page).to have_content('Comment2')
+    end
   end
 end
