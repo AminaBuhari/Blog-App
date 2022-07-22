@@ -1,1 +1,10 @@
-<h1>Here is a post by username</h1>
+<div class="post">
+  <div class="post-content">
+  <div class="post-title">
+      <h3><%=@post.title%> by <%=@post.user.name%></h3>
+    </div>
+    <h4>Comments: <%=@post.comments_counter%>, Likes: <%=@post.likes_counter%></h4>
+    <p><%=@post.text%></p>
+  </div>
+  
+</div>

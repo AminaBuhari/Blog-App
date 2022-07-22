@@ -1,3 +1,26 @@
-# <h1>Posts#index</h1>
-# <p>Find me in app/views/posts/index.html.erb</p>
-<h1>Here is a list of all posts by a user</h1>
+<div class="user">
+  <div class='user-avatar'>
+    <%=image_tag("https://source.unsplash.com/200x200/?img=#{@user.id}", class: 'user-image', alt: 'user picture')%>
+  </div>
+  <div class="user-name">
+    <%=link_to @user.name, user_path(@user), class: 'name'%>
+    <%=link_to "Number of posts: #{@user.post_counter}",          user_posts_path(@user), class: 'posts-num'%>
+  </div>
+</div>
+<%@posts.each do |post, idx|%>
+  <div class="user-post">
+    <h3><%=link_to post.title, user_post_path(@user, post) %></h3>
+    <p><%= post.text.slice(0...50) + '...' %></p>
+    <p class='count'>Comments <%=post.comments_counter%>, Likes <%=post.likes_counter%></p>
+    <div class="user-post-comments">
+      <h3>Comments</h3>
+      <%post.comments.each do |comment|%>
+        <p><%= comment.user.name %>: <%= comment.text %></p>
+      <%end%>
+    </div>
+  </div>
+<%end%>
+<div class="pagination">
+  <%=link_to "Previous Page", user_posts_path(@user, page: @page - 1)%>
+  <p><%=@page + 1%></p>
+  <%=link_to "Next Page", user_posts_path(@user, page: @page + 1)%>

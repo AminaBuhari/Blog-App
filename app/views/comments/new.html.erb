@@ -1,0 +1,4 @@
+    <%=form_with :url => new_user_comment_path(@user, @post), :method => :post, :class => 'new-comment' do |f|%>
+        <%=f.text_field :text, placeholder: 'Comment', class: 'comment-text'%>
+        <%=f.submit 'Comment', class: 'comment-submit'%>
+      <%end%>

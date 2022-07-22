@@ -1,3 +1,13 @@
-# <h1>Users#index</h1>
-<h1>Here is a list of all users</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="user-wrapper">
+  <% @users.each do |user| %>
+    <div class="user">
+      <div class="user-image">
+        <%=image_tag("https://source.unsplash.com/200x200/?img=#{user.id}", alt: 'user image')%>r
+      </div>
+      <div class="user-name">
+        <%=link_to user.name, user_path(user), class: 'name'%>
+        <%=link_to "Number of posts: #{user.post_counter}",user_posts_path(user), class: 'posts-num'%>
+      </div>
+    </div>
+  <% end %>
+</div>

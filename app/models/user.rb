@@ -8,4 +8,8 @@ class User < ApplicationRecord
   def recent_posts
     posts.limit(3).order(created_at: :desc)
   end
+
+  def most_recent_three_posts
+    posts.order!(created_at: :desc).limit(3)
+  end
 end
