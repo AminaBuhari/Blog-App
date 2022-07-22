@@ -69,7 +69,6 @@ RSpec.describe 'Posts', type: :system do
       click_link 'Hello'
       expect(page).to have_current_path user_post_path(@author1, @post1)
     end
-
   end
 
   describe 'show' do
