@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '3.1.1'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.3'
@@ -46,6 +46,8 @@ gem 'font-awesome-sass', '~> 6.1.1'
 # Use Sass to process CSS
 gem 'ffi', '~> 1.15.5'
 
+gem 'devise'
+
 gem 'sassc-rails'
 
 source 'https://rubygems.org'
@@ -66,6 +68,8 @@ end
 group :development do
   gem 'bullet', require: true
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'letter_opener'
+
   gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
