@@ -12,6 +12,22 @@
 - Linters
 - Documented Work
 
+* Ruby version
+## Setup
+1) Go to your terminal and navigate to where you store project repositories
+2) Run the command `https://github.com/AminaBuhari/Blog-App.git`
+
+* System dependencies
+## Run
+1) Navigate to the source folder in your terminal
+2) Open in your editor of choice
+3) run `bundle install`
+4) run `rails db:create`
+
+* Configuration
+## Testing
+run the following after cloning the repository
+- `rspec`
 
 ## Authors
 👤 **Amina Buhari**
