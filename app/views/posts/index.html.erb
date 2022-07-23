@@ -3,7 +3,6 @@
     <%=image_tag("https://source.unsplash.com/200x200/?img=#{@user.id}", class: 'user-image', alt: 'user picture')%>
   </div>
   <div class="user-name">
-    <%=link_to @user.name, user_path(@user), class: 'name'%>
     <%=link_to "Number of posts: #{@user.post_counter}",          user_posts_path(@user), class: 'posts-num'%>
   </div>
 </div>
@@ -19,6 +18,8 @@
       <%end%>
     </div>
   </div>
+
+  
 <%end%>
 <div class="pagination">
   <%=link_to "Previous Page", user_posts_path(@user, page: @page - 1)%>

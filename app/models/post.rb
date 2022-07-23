@@ -22,7 +22,7 @@ class Post < ApplicationRecord
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:post_id])
     @post.decrement_posts_counter
     @post.delete
     redirect_to user_path(@post.user_id), notice: "Post deleted"
