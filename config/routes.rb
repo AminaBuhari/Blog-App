@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     end
    
   end
+
   scope 'api' do
+    
     resources :users, only: [] do
       get '/posts' => 'api/posts#index', as: :api_user_posts
     end
