@@ -57,6 +57,12 @@ source 'https://rubygems.org'
 
 gem 'rspec'
 
+gem 'jwt', '~> 2.2'
+gem 'rack-cors'
+gem 'bcrypt', '~>3.1.7'
+
+
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -65,6 +71,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rails-controller-testing'
+  gem 'dotenv-rails'
   gem 'rspec-rails', '~> 4.0.0.beta2'
 end
 
