@@ -16,4 +16,12 @@ class User < ApplicationRecord
   def most_recent_three_posts
     posts.order!(created_at: :desc).limit(3)
   end
+  
+   # User::Roles
+      # The available roles
+  Roles = [ :admin , :default ]
+  def is?( requested_role )
+    self.role == requested_role.to_s
+  end
+
 end
