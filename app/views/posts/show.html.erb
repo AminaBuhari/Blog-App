@@ -25,6 +25,8 @@
 
     <%= link_to icon('fa-solid', 'comment', class: 'like'), new_user_post_comment_path(@user, @post) %>
 
+  
+
   <% if can? :destroy, @post %>
   <%= button_to 'Delete',
     user_post_path(user_id: post.author.id, id: post.id),
