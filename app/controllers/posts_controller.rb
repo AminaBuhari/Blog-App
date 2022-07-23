@@ -31,13 +31,12 @@ class PostsController < ApplicationController
     end
   end
 
-  # def like
-  #   @post = Post.find(params[:id])
-  #   @like = Like.new(user: current_user, post: @post)
-  #   @like.save
-  #   @like.update_likes_counter
-  #   redirect_to user_posts_path(current_user)
-  # end
+  def destroy
+    @post = Post.find(params[:id])
+    @post.decrement_posts_counter
+    @post.delete
+    redirect_to user_path(@post.user_id), notice: 'Post deleted'
+  end
 
   def post_params
     params.require(:post).permit(:title, :text)

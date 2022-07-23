@@ -25,14 +25,16 @@
 
     <%= link_to icon('fa-solid', 'comment', class: 'like'), new_user_post_comment_path(@user, @post) %>
 
-  
 
-  <% if can? :destroy, @post %>
-  <%= button_to 'Delete',
-    user_post_path(user_id: post.author.id, id: post.id),
-    method: :delete,
-    data: {confirm: 'Are you sure?'},
-    class: 'btn btn-like'
-  %>
-  <% end %>
   </div>
+
+  <div>
+<% if can? :destroy, @post %>
+<%= button_to 'Delete',
+ user_post_path(user_id: post.user.id, id: post.id),
+ method: :delete,
+ data: {confirm: 'Are you sure?'},
+ class: 'btn btn-like'
+%>
+ <% end %>
+</div>
