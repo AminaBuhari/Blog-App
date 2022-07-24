@@ -2,7 +2,7 @@
   <% @users.each do |user| %>
     <div class="user">
       <div class="user-image">
-        <%=image_tag("https://source.unsplash.com/200x200/?img=#{user.id}", alt: 'user image')%>r
+        <%=image_tag("https://robohash.org/#{@user.id}.png", alt: 'user image')%>r
       </div>
       <div class="user-name">
         <%=link_to user.name, user_path(user), class: 'name'%>

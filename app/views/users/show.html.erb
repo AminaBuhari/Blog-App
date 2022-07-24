@@ -1,6 +1,6 @@
 <div class="user">
   <div class="user-image">
-    <%=image_tag("https://source.unsplash.com/200x200/?img=#{@user.id}", class: 'user--imagr', alt: 'user picture')%>
+    <%=image_tag("https://robohash.org/#{@user.id}.png", class: 'user--imagr', alt: 'user picture')%>
   </div>
   <div class="user-name">
     <%=link_to @user.name, user_path(@user), class: 'name'%>

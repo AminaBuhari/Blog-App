@@ -8,12 +8,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-   @comment = current_user.comments.new(comment_params)
+    @comment = Comment.new(comment_params)
+    @comment.user_id = params[:user_id]
     @comment.post_id = params[:post_id]
     @comment.save
-    redirect_to user_post_path(params[:user_id], @comment.post_id)
-      
-
+    redirect_to user_post_path(@comment.user_id, @comment.post_id)
   end
  
  
