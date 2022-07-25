@@ -5,7 +5,6 @@ ruby '3.1.2'
 
 gem 'cancancan', '~> 1.9'
 
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.3'
 
@@ -60,8 +59,6 @@ gem 'rspec'
 gem 'jwt', '~> 2.2'
 gem 'rack-cors'
 gem 'bcrypt', '~>3.1.7'
-
-
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

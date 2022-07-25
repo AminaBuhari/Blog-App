@@ -40,5 +40,4 @@ class ApplicationController < ActionController::Base
   def require_login
     render json: { error: 'Unauthorized' }, status: :unauthorized unless client_has_valid_token?
   end
-
 end

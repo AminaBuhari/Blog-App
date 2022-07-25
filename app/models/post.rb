@@ -26,6 +26,5 @@ class Post < ApplicationRecord
     @post.decrement_posts_counter
     @post.delete
     redirect_to user_path(@post.user_id), notice: "Post deleted"
-  end 
-
+  end
 end

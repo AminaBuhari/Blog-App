@@ -8,7 +8,6 @@ class PostsController < ApplicationController
     @posts = @user.posts.includes(comments: params[:user]).offset(@page * POSTS_PER_PAGE).limit(POSTS_PER_PAGE)
   end
 
-  
   def new
     @post = Post.new
   end
@@ -18,7 +17,6 @@ class PostsController < ApplicationController
     @user = current_user
     @comments = @post.comments.includes(:user)
   end
-
 
   def create
     @post = Post.new(post_params)

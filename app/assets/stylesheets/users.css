@@ -11,14 +11,13 @@ a {
   height: 1rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  padding-bottom: .25rem;
+  padding-bottom: 0.25rem;
 }
 
 .btn a {
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 0.5rem;
   width: 10rem;
   border-radius: 15px;
@@ -79,20 +78,19 @@ a {
 
 .user .user-name a.name {
   text-decoration: none;
-  color: #000;
   font-size: 2rem;
   font-weight: bold;
+
   --s: 0.1em;   /* the thickness of the line */
   --c: #1095c1; /* the color */
-  
+
   color: #0000;
   cursor: pointer;
   padding-bottom: var(--s);
-  background: 
-    linear-gradient(90deg,var(--c) 50%,#000 0) calc(100% - var(--_p,0%))/200% 100%,
-    linear-gradient(var(--c) 0 0) 0% 100%/var(--_p,0%) var(--s) no-repeat;
-  -webkit-background-clip: text,padding-box;
-          background-clip: text,padding-box;
+  background:
+    linear-gradient(90deg, var(--c) 50%, #000 0) calc(100% - var(--_p, 0%))/200% 100%,
+    linear-gradient(var(--c) 0 0) 0% 100%/var(--_p, 0%) var(--s) no-repeat;
+  -webkit-background-clip: text, padding-box;
   transition: 0.5s;
 }
 
@@ -120,34 +118,32 @@ a {
   margin-bottom: 1rem;
 }
 
-.button_green{
+.button_green {
   padding-top: 10px;
   width: 57px;
   height: 42px;
 }
 
-
 .name:hover {
-  --_p: 10%
+  --_p: 10%;
 }
 
 .sign_out {
   width: 100px;
   height: 30px;
-  background-color: red; 
+  background-color: red;
   color: white;
   font-weight: 500;
   font-size: 16px;
   border-style: none;
   border-radius: 10px;
-  padding: 0, 10px;
-  
+  padding: 0 10px;
 }
 
 .icons {
   display: flex;
-gap: 10px;
-margin-top: 10px;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .butn {
@@ -155,9 +151,7 @@ margin-top: 10px;
   height: 40px;
   background-color: black;
   color: white;
-  font-weight: 500;
   font-size: 16px;
   border-style: none;
-
   font-weight: 600;
 }
