@@ -1,12 +1,35 @@
-
-
 <div class="post">
   <div class="post-content">
   <div class="post-title">
       <h3><%=@post.title%> by <%=@post.user.name%></h3>
     </div>
-    <h4>Comments: <%=@post.comments_counter.to_i + 1%>, Likes: <%=@post.likes_counter%></h4>
+    <h4>Comments: <%=@post.comments_counter%>, Likes: <%=@post.likes_counter%></h4>
     <p><%=@post.text%></p>
+
+    <div class="icons">
+    <div>
+    <%=form_with :url => user_post_likes_path(@user, @post), :method => :post, :class => 'new-like' do |f|%>
+      <%= f.button nil, class: "button_green" do %>
+        <%= icon('fa-solid', 'thumbs-up', class: 'like')%>
+      <% end %>
+      
+
+    <%end%>
+    </div>
+    <div class="butn">
+    <% if can? :destroy, Post %>
+    <%=button_to 'Delete',
+      user_post_path,
+      method: :delete,
+      data: {confirm: 'Are you sure?'},
+      class: 'butn'
+    %> 
+    <% end %>
+    </div>
+    </div>
+    
+    
+
   </div>
   <div class="post--comments">
     <h3>Comments</h3>
@@ -16,5 +39,16 @@
         <p></p>
       </div>
     <%end%>
+
+    
+    
+    <div class="btn">
+    <%=link_to "New Comment", new_user_post_comment_path(@user, @post), class: 'show-posts'%>
+    </div>
+  
+    
+
+
   </div>
-</div>
+
+  

@@ -1,6 +1,9 @@
+<div class="btn">
+  <%=button_to "Sign Out",  destroy_user_session_path, method: :delete, class: 'sign_out'%>
+</div>
 <div class="user">
   <div class="user-image">
-    <%=image_tag("https://source.unsplash.com/200x200/?img=#{@user.id}", class: 'user--imagr', alt: 'user picture')%>
+    <%=image_tag("https://robohash.org/#{@user.id}.png", class: 'user--imagr', alt: 'user picture')%>
   </div>
   <div class="user-name">
     <%=link_to @user.name, user_path(@user), class: 'name'%>
@@ -19,6 +22,10 @@
   </div>
 <%end%>
 <div class="btn">
+  <%=link_to "Create new post", new_user_post_path(@user), class: 'show-posts'%>
+</div>
+<div class="btn">
   <%=link_to "See all posts", user_posts_path(@user), class: 'show-posts'%>
 </div>
+
  

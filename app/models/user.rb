@@ -16,4 +16,12 @@ class User < ApplicationRecord
   def most_recent_three_posts
     posts.order!(created_at: :desc).limit(3)
   end
+
+  def admin?
+    :role == 'admin'
+  end
+
+  def authenticate(password)
+    valid_password?(password)
+  end
 end

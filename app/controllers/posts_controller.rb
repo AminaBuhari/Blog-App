@@ -8,15 +8,14 @@ class PostsController < ApplicationController
     @posts = @user.posts.includes(comments: params[:user]).offset(@page * POSTS_PER_PAGE).limit(POSTS_PER_PAGE)
   end
 
+  def new
+    @post = Post.new
+  end
+
   def show
     @post = Post.find(params[:id])
     @user = current_user
     @comments = @post.comments.includes(:user)
-  end
-
-  def new
-    @post = Post.new
-    @user = current_user
   end
 
   def create
@@ -30,12 +29,11 @@ class PostsController < ApplicationController
     end
   end
 
-  def like
+  def destroy
     @post = Post.find(params[:id])
-    @like = Like.new(user: current_user, post: @post)
-    @like.save
-    @like.update_likes_counter
-    redirect_to user_posts_path(current_user)
+    @post.decrement_posts_counter
+    @post.delete
+    redirect_to user_path(@post.user_id), notice: 'Post deleted'
   end
 
   def post_params
