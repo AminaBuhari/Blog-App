@@ -18,7 +18,7 @@ class Post < ApplicationRecord
   end
 
   def decrement_posts_counter
-    user.decrement!(:posts_counter)
+    user.decrement!(:post_counter)
   end
 
   def destroy

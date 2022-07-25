@@ -20,6 +20,16 @@
   width: 100%;
 }
 
+.hpost{
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
 .post .post-content {
   width: 100%;
   border-radius: 15px;

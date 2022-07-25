@@ -1,14 +1,16 @@
 <div class="user">
   <div class='user-avatar'>
-    <%=image_tag("https://robohash.org/#{@user.id}.png", class: 'user-image', alt: 'user picture')%>
+    <%=image_tag("https://robohash.org/#{:user_id}.png", class: 'user-image', alt: 'user picture')%>
+
   </div>
   <div class="user-name">
+  <%=link_to @user.name, user_path(@user), class: 'name'%>
     <%=link_to "Number of posts: #{@user.post_counter}",          user_posts_path(@user), class: 'posts-num'%>
   </div>
 </div>
 <%@posts.each do |post, idx|%>
   <div class="user-post">
-    <h3><%=link_to post.title, user_post_path(@user, post) %></h3>
+    <h3 class='hpost'><%=link_to post.title, user_post_path(@user, post) %></h3>
     <p><%= post.text.slice(0...50) + '...' %></p>
     <p class='count'>Comments <%=post.comments_counter%>, Likes <%=post.likes_counter%></p>
     <div class="user-post-comments">

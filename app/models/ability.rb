@@ -1,18 +1,15 @@
 class Ability
   include CanCan::Ability
 
-  def initialize( user )
+  def initialize(user)
+    return unless user.present?
 
-      user ||= User.new
-      can :read, :all
-  
-      if user.is? :admin
-        can :manage, :all
-      else
-        can :manage, Comment, author_id: user.id
-        can :manage, Post, author_id: user.id
-        can :read, :all
-      end
+    can :read, :all
+    can :manage, Post, author_id: user.id
+    can :manage, Comment, author_id: user.id
+
+    return unless user.admin?
+
+    can :manage, :all
   end
-
 end

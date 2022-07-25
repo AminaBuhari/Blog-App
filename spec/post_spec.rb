@@ -8,6 +8,10 @@ RSpec.describe 'Posts', type: :system do
     end
 
     before(:each) do
+      visit '/users'
+      click_link 'User1'
+      click_link 'See all posts'
+
       @author1 = User.create(name: 'User1',
                              photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
                              bio: 'Bio1',
