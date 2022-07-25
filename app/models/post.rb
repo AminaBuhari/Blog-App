@@ -25,6 +25,6 @@ class Post < ApplicationRecord
     @post = Post.find(params[:post_id])
     @post.decrement_posts_counter
     @post.delete
-    redirect_to user_path(@post.user_id), notice: "Post deleted"
+    redirect_to user_path(@post.user_id), notice: 'Post deleted'
   end
 end
